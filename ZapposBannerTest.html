@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+        <script type="text/javascript">
+
+        var url = window.location.href;
+        // var region = 
+        // zappos://something
+        // deeplink_path = window.location.something
+
+        (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode banner closeBanner creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setIdentity track validateCode".split(" "), 0);
+        
+        // Zappos Live Key
+        branch.init('key_live_hlhIAeHcdEzkrfVp2kdhijfiAwgwKlcb');
+
+
+        branch.banner({
+            icon: 'http://a5.mzstatic.com/us/r30/Purple69/v4/d5/ac/36/d5ac3658-13e6-3066-c8df-d8d3d1d8eef9/icon175x175.jpeg',
+            title: 'Zappos',
+            description: 'Our shopping app does its darndest to deliver that WOW service our customers have come to know and love, like free shipping and returns with no purchase minimum, a 365 day return policy and 24/7 customer support.', 
+            openAppButtonText: 'Open',              // Text to show on button if the user has the app installed
+            downloadAppButtonText: 'Get',      // Text to show on button if the user does not have the app installed
+            sendLinkText: 'Send me a link',              // Text to show on desktop button to allow users to text themselves the app
+            phonePreviewText: '+1 800 867 5309',      // The default phone placeholder is a US format number, localize the placeholder number with a custom placeholder with this option
+            showiOS: true,                          // Should the banner be shown on iOS devices?
+            showAndroid: true,                      // Should the banner be shown on Android devices?
+            showDesktop: true,                      // Should the banner be shown on desktop devices?
+            iframe: true,                           // Show banner in an iframe, recomended to isolate Branch banner CSS
+            disableHide: false,                     // Should the user have the ability to hide the banner? (show's X on left side)
+            forgetHide: 2,                      // Should we show the banner after the user closes it? Can be set to true, or an integer to show again after X days
+            position: 'bottom',                        // Sets the position of the banner, options are: 'top' or 'bottom', and the default is 'top'
+            mobileSticky: true,                    // Determines whether the mobile banner will be set `position: fixed;` (sticky) or `position: absolute;`, defaults to false *this property only applies when the banner position is 'top'
+            desktopSticky: true,                    // Determines whether the desktop banner will be set `position: fixed;` (sticky) or `position: absolute;`, defaults to true *this property only applies when the banner position is 'top'
+            // customCSS: '.title { font-weight: bold; }; ',   // Add your own custom styles to the banner that load last, and are gauranteed to take precedence, even if you leave the banner in an iframe
+            make_new_link: true,                  // Should the banner create a new link, even if a link already exists?
+            rating: 4.5,                              // Number of stars (should be your store rating)
+            reviewCount: 46497,                      // Number of reviews that generate the rating (should be your store reviews)
+            theme: 'light',  
+        }, {
+            channel: 'App Banner',
+            // All Analytics tags used for directional usage on the dashboard
+            // campaign = string
+            // feature = string
+            // stage = string
+            // tags is an array
+            // Make sure to pack the branch analytics tags above as well as anything else you'd like in the data dictionary below! :)
+            data:{
+                'url': 'zappos://ios.zappos.com/search?browseTitle=Lucky%20Brand&filters=%7B%22brandNameFacet%22%3A%5B%22Lucky%20Brand%22%5D%7D' //this is where you include your route to deep link users to a specific page (in this case, the Lucky Brand search page)
+                //'$og_redirect': url,
+                //'$deeplink_path': url
+            }
+        });
+
+        </script>
+
+        <!-- Remove this... just for fun :) -->
+        <body style="background: url(); background-size: cover; background-repeat: no-repeat;">
+            
+        </body>
+
+</html>

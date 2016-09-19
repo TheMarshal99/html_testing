@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript">
+            var url = window.location.pathname;
+            var channel = 'Mobile Web';
+            var feature = 'App Banner';
+            var campaign = null;
+            var referring_data = null;
+
+            console.log("Channel: " + channel);
+
+            var callback = function(err, data) {
+                referring_data = data.data_parsed;
+                console.log(referring_data);
+            };
+
+            (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode banner closeBanner creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setIdentity track validateCode".split(" "), 0);
+
+            // Crunchbase live key
+            branch.init('key_live_jje5UHB1PvaAZKxqgXZlFmcfFrpk198S', callback);
+
+            branch.data(function(err, data) {
+                console.log(data);
+            });
+
+            console.log("URL: " + url);
+
+            branch.banner({
+                icon: 'http://thedailyapp.net/wp-content/uploads/2016/08/crunchbase-icon-225x225.jpg',
+                title: 'Crunchbase',
+                description: 'The world\'s most relied upon business information platform.',
+                openAppButtonText: 'Open',              // Text to show on button if the user has the app installed
+                downloadAppButtonText: 'Download',      // Text to show on button if the user does not have the app installed
+                sendLinkText: 'Send Link',              // Text to show on desktop button to allow users to text themselves the app
+                phonePreviewText: '+44 9999-9999',      // The default phone placeholder is a US format number, localize the placeholder number with a custom placeholder with this option
+                showiOS: true,                          // Should the banner be shown on iOS devices?
+                showAndroid: false,                      // Should the banner be shown on Android devices?
+                showDesktop: false,                      // Should the banner be shown on desktop devices?
+                iframe: true,                           // Show banner in an iframe, recomended to isolate Branch banner CSS
+                disableHide: false,                     // Should the user have the ability to hide the banner? (show's X on left side)
+                forgetHide: false,                      // Should we show the banner after the user closes it? Can be set to true, or an integer to show again after X days
+                position: 'top',                        // Sets the position of the banner, options are: 'top' or 'bottom', and the default is 'top'
+                mobileSticky: false,                    // Determines whether the mobile banner will be set `position: fixed;` (sticky) or `position: absolute;`, defaults to false *this property only applies when the banner position is 'top'
+                desktopSticky: true,                    // Determines whether the desktop banner will be set `position: fixed;` (sticky) or `position: absolute;`, defaults to true *this property only applies when the banner position is 'top'
+                //customCSS: '.title { color: #F00; }',   // Add your own custom styles to the banner that load last, and are gauranteed to take precedence, even if you leave the banner in an iframe
+                make_new_link: false,                   // Should the banner create a new link, even if a link already exists?
+                rating: 5,                              // Number of stars (should be your store rating)
+                reviewCount: 17,                      // Number of reviews that generate the rating (should be your store reviews)
+                theme: 'light',                         // Uses Branch's predetermined color scheme for the banner { 'light' || 'dark' }, default: 'light'
+            },
+            // Here is where you define the deep link that you'd like to use
+            { 
+                channel: channel,
+                campaign: campaign,
+                feature: feature,
+                data: {
+                    '$deeplink_path': url
+                }
+            });
+
+
+        </script>
+    </head>
+</html>
